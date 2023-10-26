@@ -10,7 +10,7 @@ type Person struct {
 }
 var UserData []Person
 
-type MainTesting struct {
+type DevelopementTesting struct {
 	Id string `json:"id"`
 	Name string `json:"name"`
 	Email string `json:"email"`
