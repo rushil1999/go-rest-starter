@@ -8,14 +8,6 @@ type Person struct {
 	Password string `json:"password"`
 	UserAccount string `json:"userAccount"`
 }
-
-type PersonDTO struct {
-	Name string `json:"name"`
-	Email string `json:"email"`
-	phone string `json:"phone"`
-	password string `json:"password"`
-}
-
 var UserData []Person
 
 // func (p *Person) getId () string {
