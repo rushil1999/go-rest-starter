@@ -7,6 +7,7 @@ import (
 )
 
 
+
 func RegisterUser(person models.Person) (models.Person, error ){ 
 	err := validateNewUser(person)
 	if err != nil {
@@ -14,8 +15,11 @@ func RegisterUser(person models.Person) (models.Person, error ){
 	}
 	newUserId := uuid.New().String()
 	person.Id = newUserId
+	externalApiResponse := GetUniqueBankAccountNumber()
+	creditCardDetails := externalApiResponse["credit_card"].(map[string]interface{})
+	accountNumber := creditCardDetails["cc_number"]
+	person.UserAccount = accountNumber.(string)
 	models.UserData = append(models.UserData, person)
-	fmt.Println(models.UserData) 
 	return person, nil
 }
 
